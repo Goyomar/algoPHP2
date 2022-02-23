@@ -9,8 +9,8 @@ function afficherInput($nomsInput){
     $form = "";
     $form .= "<form>";
     foreach ($nomsInput as $value) {
-        $form .= "<label>".$value."</label><br>";
-        $form .= "<input type='text' required><br>";
+        $form .= "<label for='".$value."'>".$value."</label><br>";
+        $form .= "<input type='text' name='".$value."' required><br>";
     }
     $form .= "</form>";
     return $form;

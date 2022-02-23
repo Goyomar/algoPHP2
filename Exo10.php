@@ -7,8 +7,8 @@ nom,  prénom,  adresse  e-mail, ville, sexe et une liste de choix parmi lesquel
 <?php
 $nomsInput = ["Nom", "Prénom", "Email", "Ville"];
 $deroulante = ["Développeur Logiciel", "Designer Web", "Intégrateur", "Chef de projet"];
-$elements = ["Masculin" => "NON",
-"Feminin" => "NON",
+$elements = ["Masculin" => "",
+"Feminin" => "",
 "autre" => "checked"
 ];
 
@@ -28,8 +28,8 @@ function afficherInput($nomsInput){
     $form = "";
     foreach ($nomsInput as $value) {
         $epyt = $value == 'Email' ? 'email' : 'text';
-        $form .= "<label>".$value."</label><br>";
-        $form .= "<input type='".$epyt."' required><br>";
+        $form .= "<label for='".$value."'>".$value."</label><br>";
+        $form .= "<input name='".$value."' type='".$epyt."' required><br>";
     }
     return $form;
 }
@@ -47,12 +47,7 @@ function alimenterListeDeroulante($elements){
 function genererRadio($elements){
     $fox = "";
     foreach ($elements as $key => $value) {
-        if ($value == "checked") {
-            $c= "checked";
-        } else {
-            $c = "";
-        }
-        $fox .= "<input type='radio' name='sexe' ".$c.">".$key."<br>";
+        $fox .= "<input type='radio' name='sexe' ".$value.">".$key."<br>";
     }
     return $fox;
 }

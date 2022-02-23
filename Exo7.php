@@ -5,19 +5,14 @@
 <?php
 
 $elements = ["France" => "checked",
-"Allemagne" => "NON",
+"Allemagne" => "",
 "USA" => "checked",
 ];
 
 function genererCheckbox($elements){
     $fox = "";
     foreach ($elements as $key => $value) {
-        if ($value == "checked") {
-            $c= "checked";
-        } else {
-            $c = "";
-        }
-        $fox .= "<input type='checkbox' name='".$key."' ".$c.">".$key."<br>";
+        $fox .= "<input type='checkbox' name='visit' ".$value.">".$key."<br>";
     }
     return $fox;
 }

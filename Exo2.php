@@ -12,6 +12,7 @@ $capitales = ["France" => "Paris",
             ];
 
 function afficherTableHTML($capitales){
+    ksort($capitales);
     $table ="";
     $table .= "<table border=1>";
         $table .= "<thead>";

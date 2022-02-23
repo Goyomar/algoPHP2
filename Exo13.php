@@ -74,8 +74,8 @@ Class Voiture
     }
 
     public function accelerer(int $vitesse){
-        if ($this->_stop == false) {
-            $this->_vitesseActuelle = $this->_vitesseActuelle + $vitesse;
+        if (!$this->_stop) {
+            $this->setVitesseActuelle($this->_vitesseActuelle + $vitesse);
             $return = "Le véhicule ".$this." accélère de ".$vitesse." km / h";
         } else {
             $return = "Le véhicule ".$this." veut accélerer de ".$vitesse."<br>Pour accélerer, il faut démarrer le véhicule ".$this." !";
@@ -84,8 +84,8 @@ Class Voiture
     }
 
     public function ralentir(int $vitesse){
-        if ($this->_stop == false) {
-            $this->_vitesseActuelle = $this->_vitesseActuelle - $vitesse;
+        if (!$this->_stop) {
+            $this->setVitesseActuelle($this->_vitesseActuelle - $vitesse);
             $return = "Le véhicule ".$this." ralenti de ".$vitesse." km / h";
             if ($this->_vitesseActuelle < 0) {
                 $this->_vitesseActuelle = 0;
